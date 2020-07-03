@@ -1,0 +1,24 @@
+{
+  "name": "heroku-playwright-example",
+  "version": "1.0.0",
+  "description": "Example how you can use Playwright on Heroku",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxschmitt/heroku-playwright-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mxschmitt/heroku-playwright-example/issues"
+  },
+  "homepage": "https://github.com/mxschmitt/heroku-playwright-example#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "playwright-chromium": "^1.1.1",
+    "playwright-firefox": "^1.1.1"
+  }
+}
