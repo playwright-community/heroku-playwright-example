@@ -1,6 +1,6 @@
 const express = require("express")
-const { chromium } = require("playwright-chromium")
-const { firefox } = require("playwright-firefox")
+// const { chromium } = require("playwright-chromium")
+// const { firefox } = require("playwright-firefox")
 const { webkit } = require("playwright-webkit")
 
 const app = express()
@@ -15,7 +15,7 @@ app.get("/browser/:name", async (req, res) => {
   console.log(`Incoming request for browser '${browserName}' and URL '${url}'`)
   try {
     /** @type {import('playwright').Browser} */
-    const browser = await { chromium, firefox, webkit }[browserName].launch(browserName === "chromium" ? {
+    const browser = await { webkit }[browserName].launch(browserName === "chromium" ? {
       args: ['--no-sandbox']
     } : {})
     const page = await browser.newPage()
