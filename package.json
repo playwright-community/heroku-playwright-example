@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "playwright-chromium": "^1.1.1",
-    "playwright-firefox": "^1.1.1"
+    "playwright-firefox": "^1.1.1",
+    "playwright-webkit": "^1.1.1"
   }
 }
