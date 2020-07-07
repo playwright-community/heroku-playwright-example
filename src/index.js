@@ -3,6 +3,7 @@ const { chromium } = require("playwright-chromium")
 const { firefox } = require("playwright-firefox")
 
 const app = express()
+app.use(express.static("./public"))
 const port = process.env.PORT || 3000;
 
 app.get("/browser/:name", async (req, res) => {

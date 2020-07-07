@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroku Playwright Example</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎭</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css"
+        integrity="sha512-ADrqa2PY1TZtb/MoLZIZu/Z/LlPaWQeDMBV73EMwjGam43/JJ5fqW38Rq8LJOVGCDfrJeOMS3Q/wRUVzW5DkjQ=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Heroku Playwright Example
+                </h1>
+                <h2 class="subtitle">
+                    This example showcases Playwright running on Heroku with the <a
+                        href="https://github.com/mxschmitt/heroku-playwright-buildpack/">Playwright buildpack</a>. A
+                    full reference for the project you can find on <a
+                        href="https://github.com/mxschmitt/heroku-playwright-example">GitHub</a>.
+                </h2>
+            </div>
+        </div>
+    </section>
+    <div class="container pb-5">
+        <div class="notification">
+            By selecting a browser and entering a URL, a headless browser instance will be launched and a screenshot is
+            taken on a Heroku dyno.
+        </div>
+        <div class="notification">
+            <div class="field has-addons">
+                <div class="control">
+                    <div class="select">
+                        <select id="select-browser">
+                            <option value="chromium">Chromium</option>
+                            <option value="firefox">Firefox</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control is-expanded">
+                    <input class="input is-fullwidth" type="url" value="https://github.com/microsoft/playwright"
+                        id="input-url">
+                </div>
+                <div class="control">
+                    <a class="button is-info" id="btn-run">
+                        Make a screenshot on Heroku
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="notification">
+            <img id="image-screenshot" alt="Rendered screenshot"
+                src="/browser/chromium?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fplaywright" />
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                For further information, see on the <a href="http://playwright.tech">Playwright Community blog</a> or on
+                <a href="https://github.com/playwright-community">GitHub</a>.
+            </p>
+        </div>
+    </footer>
+    <script>
+        (() => {
+            const runBtn = document.querySelector("#btn-run")
+            runBtn.addEventListener("click", () => {
+                const browserSelect = document.querySelector("#select-browser")
+                const screenshotUrl = document.querySelector("#input-url")
+                const searchParams = new URLSearchParams()
+                searchParams.set("url", screenshotUrl.value)
+
+                const screenshotElement = document.querySelector("#image-screenshot")
+                screenshotElement.src = `/browser/${browserSelect.value}?${searchParams.toString()}`
+            })
+        })()
+    </script>
+
+</body>
+
+</html>

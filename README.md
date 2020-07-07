@@ -12,10 +12,10 @@ The setup is based on using the [Playwright Heroku Buildpack](https://github.com
 
 In this minimal setup, we are using an Express web server, which accepts requests with the browser name and the URL as parameters. This demonstrates, that the setup works during the normal Dyno runtime. For a full reference, you can find the HTTP handler in the [`src/index.js`](./src/index.js) file. It's important to run Chromium with the `--no-sandbox` flag, because Heroku has no usable sandbox functionality on their containers.
 
-To see a live demonstration, you can make requests to these URLs to see that a browser is launched, the specified URL is opened and a screenshot is taken and delivered to the user:
+To see a live demonstration, you can checkout [heroku.playwright.tech](https://heroku.playwright.tech) or make requests to these URLs to see that a browser is launched, the specified URL is opened and a screenshot is taken and delivered to the user:
 
-- Chromium: [heroku-playwright-example.herokuapp.com/browser/chromium?url=https://microsoft.com](https://heroku-playwright-example.herokuapp.com/browser/chromium?url=https://microsoft.com)
-- Firefox: [heroku-playwright-example.herokuapp.com/browser/firefox?url=https://github.com](https://heroku-playwright-example.herokuapp.com/browser/firefox?url=https://github.com)
+- Chromium: [heroku.playwright.tech/browser/chromium?url=https://microsoft.com](https://heroku.playwright.tech/browser/chromium?url=https://microsoft.com)
+- Firefox: [heroku.playwright.tech/browser/firefox?url=https://github.com](https://heroku.playwright.tech/browser/firefox?url=https://github.com)
 
 ## Best practises
 
