@@ -58,6 +58,16 @@
             <img id="image-screenshot" alt="Rendered screenshot"
                 src="/browser/chromium?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fplaywright" />
         </div>
+        <div class="notification">
+            To use this buildpack, simply set it in your Heroku configuration before your Node.js buildpack.
+            <p>
+                <code>
+                    heroku buildpacks:set https://github.com/mxschmitt/heroku-playwright-example -a my-app
+                </code>
+            </p>
+            For more information, checkout the repository on <a
+                href="https://github.com/mxschmitt/heroku-playwright-buildpack/">GitHub</a>.
+        </div>
     </div>
     <footer class="footer">
         <div class="content has-text-centered">
