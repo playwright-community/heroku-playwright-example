@@ -18,6 +18,6 @@
   "homepage": "https://github.com/mxschmitt/heroku-playwright-example#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "playwright-webkit": "^1.1.1"
+    "playwright-webkit": "^1.2.0-next.1595040996323"
   }
 }
