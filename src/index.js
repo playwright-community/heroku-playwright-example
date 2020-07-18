@@ -4,6 +4,7 @@ const express = require("express")
 const { webkit } = require("playwright-webkit")
 
 const app = express()
+app.use(express.static("./public"))
 const port = process.env.PORT || 3000;
 
 app.get("/browser/:name", async (req, res) => {
