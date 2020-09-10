@@ -12,16 +12,21 @@ app.get("/browser/:name", async (req, res) => {
     return res.status(500).send(`invalid browser name (${browserName})!`)
   }
   const url = req.query.url || "https://microsoft.com"
+  const waitUntil = req.query.waitUntil || "load"
   console.log(`Incoming request for browser '${browserName}' and URL '${url}'`)
   try {
-    /** @type {import('playwright').Browser} */
+    /** @type {import('playwright-chromium').Browser} */
     const browser = await { chromium, firefox }[browserName].launch(browserName === "chromium" ? {
       args: ['--no-sandbox']
     } : {})
     const page = await browser.newPage()
     await page.goto(url, {
-      timeout: 10 * 1000
+      timeout: 10 * 1000,
+      waitUntil
     })
+    if (req.query.timeout) {
+      await page.waitForTimeout(parseInt(req.query.timeout))
+    }
     const data = await page.screenshot({
       type: "png"
     })
