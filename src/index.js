@@ -19,13 +19,14 @@ app.get("/browser/:name", async (req, res) => {
   try {
     /** @type {import('playwright-chromium').Browser} */
     const browser = await { chromium, firefox }[browserName].launch({
-      chromiumSandbox: false,
+      chromiumSandbox: false
+    })
+    const page = await browser.newPage({
       viewport: {
         width,
         height
       }
     })
-    const page = await browser.newPage()
     await page.goto(url, {
       timeout: 10 * 1000,
       waitUntil
