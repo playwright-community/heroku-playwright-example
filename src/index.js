@@ -13,8 +13,8 @@ app.get("/browser/:name", async (req, res) => {
   }
   const url = req.query.url || "https://microsoft.com"
   const waitUntil = req.query.waitUntil || "load"
-  const width = req.query.width || 1920
-  const height = req.query.height || 1080
+  const width = req.query.width ? parseInt(req.query.width, 10) : 1920
+  const height = req.query.height ? parseInt(req.query.height, 10) : 1080
   console.log(`Incoming request for browser '${browserName}' and URL '${url}'`)
   try {
     /** @type {import('playwright-chromium').Browser} */
