@@ -32,7 +32,7 @@ app.get("/browser/:name", async (req, res) => {
       waitUntil
     })
     if (req.query.timeout) {
-      await page.waitForTimeout(parseInt(req.query.timeout))
+      await page.waitForTimeout(parseInt(req.query.timeout, 10))
     }
     const data = await page.screenshot({
       type: "png"
