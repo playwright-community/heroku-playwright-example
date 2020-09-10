@@ -13,12 +13,18 @@ app.get("/browser/:name", async (req, res) => {
   }
   const url = req.query.url || "https://microsoft.com"
   const waitUntil = req.query.waitUntil || "load"
+  const width = req.query.width || 1920
+  const height = req.query.height || 1080
   console.log(`Incoming request for browser '${browserName}' and URL '${url}'`)
   try {
     /** @type {import('playwright-chromium').Browser} */
-    const browser = await { chromium, firefox }[browserName].launch(browserName === "chromium" ? {
-      args: ['--no-sandbox']
-    } : {})
+    const browser = await { chromium, firefox }[browserName].launch({
+      chromiumSandbox: false,
+      viewport: {
+        width,
+        height
+      }
+    })
     const page = await browser.newPage()
     await page.goto(url, {
       timeout: 10 * 1000,
