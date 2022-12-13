@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mxschmitt/heroku-playwright-example#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "playwright-chromium": "^1.9.0",
     "playwright-firefox": "^1.9.0"
   }
